@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class VirusSpawnSettingsAuthoring : MonoBehaviour
 {
-    public GameObject VirusPrefab;
-    public int SpawnCount = 10;
+    public GameObject virusPrefab;
+    public float spawnInterval = 10;
 
     class Baker : Baker<VirusSpawnSettingsAuthoring>
     {
@@ -13,8 +13,8 @@ public class VirusSpawnSettingsAuthoring : MonoBehaviour
             var entity = GetEntity(TransformUsageFlags.None);
             AddComponent(entity, new VirusSpawnSettings
             {
-                virusPrefab = GetEntity(authoring.VirusPrefab, TransformUsageFlags.Renderable),
-                spawnCount = authoring.SpawnCount
+                virusPrefab = GetEntity(authoring.virusPrefab, TransformUsageFlags.Renderable),
+                spawnInterval = authoring.spawnInterval
             });
         }
     }
